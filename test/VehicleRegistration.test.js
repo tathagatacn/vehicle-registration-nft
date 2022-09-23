@@ -48,5 +48,10 @@ contract('VehicleRegistration', (accounts) => {
             await contract.mint(12, 4343).should.be.rejected;
             assert.equal(totalSupply, 2);
         });
+        it('restrict mint for invalid state code', async () => {
+            const result = await contract.mint(22, 1234).should.be.rejected;
+            const totalSupply = await contract.totalSupply();
+            assert.equal(totalSupply, 2);
+        });
     })
 })
