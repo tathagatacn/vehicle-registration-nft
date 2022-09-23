@@ -23,6 +23,8 @@ contract VehicleRegistration is ERC721Enumerable {
     }
 
     function mint(uint16 _stateCode, uint16 _number) public {
+        require(_stateCode <= 20, "Error - State code must be between 00 to 20");
+        
         uint256 _tokenId = uint256(_stateCode) * 10000 + _number;
 
         require(!_registrationExist[_tokenId], "Error - Registration already exists");
