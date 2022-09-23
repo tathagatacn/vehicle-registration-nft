@@ -30,4 +30,23 @@ contract('VehicleRegistration', (accounts) => {
             assert.equal(symbol, 'VRNNFT');
         })
     })
+
+    describe("minting", async () => {
+        it('minted presidential token', async () => {
+            const totalSupply = await contract.totalSupply();
+            assert.equal(totalSupply, 1); 
+        })
+        it('mint a new token', async () => {
+            const result = await contract.mint(12, 4343);
+            const totalSupply = await contract.totalSupply();
+            assert.equal(totalSupply, 2);
+
+            const event = await result.logs[0].args;
+            assert.equal(event.from, '0x0000000000000000000000000000000000000000', 'from is the contract');
+            assert.equal(event.to, accounts[0], 'to is msg.sender');
+
+            await contract.mint(12, 4343).should.be.rejected;
+            assert.equal(totalSupply, 2);
+        });
+    })
 })
