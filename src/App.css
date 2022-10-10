@@ -1,5 +1,6 @@
 .main-container {
     margin-top: 75px;
+    margin-bottom: 75px;
 }
 
 .plate-container {
@@ -33,6 +34,7 @@
     font-weight: bold;
     margin-bottom: 15px;
 }
+
 .vr-input {
     width: 100px;
     border-radius: 10px;
@@ -40,4 +42,13 @@
     line-height: 40px;
     font-size: 16px;
     text-align: center;
+}
+
+.fw-input {
+    width: 100%;
+}
+
+.btn-get-balance {
+    line-height: 28px!important;
+    vertical-align: bottom!important;
 }

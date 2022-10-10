@@ -13,8 +13,8 @@ contract VehicleRegistration is ERC721Enumerable {
     mapping(uint256 => bool) _registrationExist;
 
     // Mapping with tokenId to check if rewarded
-    uint256[] public _pendingReward;
-    mapping(uint256 => uint16) public _reward;
+    uint256[] _pendingReward;
+    mapping(uint256 => uint16) _reward;
 
     // NFT Structure
     struct Registration {

@@ -31,11 +31,13 @@ class RegistrationForm extends Component {
             <Card>
               <CardBody>
                 <form
+                  ref={(el) => (this.formRef = el)}
                   onSubmit={(event) => {
                     event.preventDefault();
                     const stateCode = this.stateCode.value;
                     const regNumber = this.regNumber.value;
                     this.mint(stateCode, regNumber);
+                    this.formRef.reset();
                   }}
                 >
                   <div className="d-flex row justify-content-around">
